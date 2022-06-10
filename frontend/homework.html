@@ -25,7 +25,7 @@
             height: 250px;
 
             background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("http://file3.instiz.net/data/cached_img/upload/2020/08/30/23/e52d290af5988b7d895c4659eb3ef918.jpg");
-            background-position: center 45%;
+            background-position: center 47%;
             background-size: cover;
 
             color: white;
@@ -62,11 +62,26 @@
             margin-bottom: 10px;
         }
     </style>
+    <script>
+        $(document).ready(function () {
+            $.ajax ({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/weather/daegu",
+                data: {},
+                success: function (response) {
+                    let temp = response['temp']
+
+                    $('#temp_span').text(temp)
+                }
+            })
+        });
+    </script>
 </head>
 
 <body>
     <div class="mytitle">
         <h1>오마이걸(OH MY GIRL) 팬명록</h1>
+        <p>현재기온 : <span id="temp_span"></span>도</p>
     </div>
     <div class="mypost">
         <div class="form-floating mb-3">
